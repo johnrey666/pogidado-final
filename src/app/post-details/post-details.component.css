@@ -1,0 +1,183 @@
+body {
+    color: white !important;
+}
+
+/* Styling for the comment section container */
+.comment-section {
+    background-color: oranged; /* Light grey background */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Space below the comment section */
+}
+
+/* Styling for the comment heading */
+.comment-section h3 {
+    color: #333; /* Dark grey text color */
+    margin-bottom: 10px; /* Space below the heading */
+}
+
+.comment-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between form elements */
+    align-items: center; /* Center items horizontally */
+}
+
+/* Styling for the textarea in the comment form */
+/* Styling for the textarea in the comment form */
+.comment-section textarea {
+    resize: none; /* Prevent resizing */
+    padding: 10px;
+    border: 1px solid #606060; /* Light grey border */
+    border-radius: 5px;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    background-color: #f0f0f0; /* Grey background */
+    width: 80%; /* Smaller width */
+    height: 20px; /* Fixed height */
+    margin: 0 auto; /* Center the textarea horizontally */
+}
+
+.comment-section button[type="submit"] {
+    background-color: #000000; /* Black background */
+    color: white; /* White text color */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 80%; /* Match the width of the textarea */
+    margin-top: 10px; /* Space above the button */
+}
+
+.comment-section button[type="submit"]:hover {
+    background-color: #404141; /* Slightly darker on hover */
+}
+
+/* Styling for individual comments */
+.comment-section.comment {
+    background-color: #6e6e6e; /* White background for comments */
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px; /* Space above each comment */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Styling for the author name in comments */
+.comment-section.comment strong {
+    color: #007bff; /* Blue text color for names */
+}
+
+/* Styling for the horizontal rule */
+.comment-section hr {
+    border: none;
+    border-top: 1px solid #888888; /* Light grey line */
+    margin: 20px 0; /* Space around the horizontal rule */
+}
+
+.post-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start; /* Align items to the top */
+    max-width: 1200px; /* Adjust based on your preference */
+    margin: auto; /* Center the container */
+    padding: 20px; /* Add some space around the content */
+    box-shadow: 0 2px 4px rgba(0,0,0.1); /* Optional: adds a subtle shadow */
+    min-height: 100vh; /* Minimum height equal to the viewport height */
+    object-fit: fill;
+}
+
+/* Styling for the media container */
+.media-container {
+    position: relative;
+    width: 100%; /* Make it responsive */
+    height: 400px; /* Fixed height */
+    object-fit: fill!important;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden; /* Ensures the media doesn't overflow the container */
+}
+
+/* Styling for the content wrapper */
+.content-wrapper {
+    width: 90%;
+    margin-top: 20px; /* Adds some space between the media and the content */
+    flex-grow: 1; /* Allows the content wrapper to grow and fill the remaining space */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distributes space evenly between items */
+    object-fit: fill;
+}
+
+/* Adjustments for related posts images */
+.post-image {
+    width: 100%; /* Fixed width for consistency */
+    height: 250px; /* Fixed height for consistency */
+    object-fit: cover; /* Ensure the image covers the area without stretching */
+    margin: 5px; /* Add some margin around each image for spacing */
+    border-radius: 10px ;
+}
+
+/* Style for the image box to ensure proper alignment */
+.post-image-box {
+    display: inline-block; /* Allow images to sit side-by-side */
+    vertical-align: top; /* Align images at the top */
+    width: 100%; /* Take full width of its parent */
+    height: auto; /* Adjust height automatically to maintain aspect ratio */
+}
+
+/* Additional styling for even and odd panels for spacing */
+.panel-even,.panel-odd {
+    width: calc(30% - 10px); /* Each panel takes up half the container minus some padding */
+    background-color: transparent; /* No background color */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Adjust.content-container to handle flex items properly */
+.content-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between; /* Adjusts spacing between posts */
+    padding: 10px;
+    max-width: 100%; /* Ensure it takes up the full width */
+}
+
+/* Adjust.post-content to avoid fixed height and ensure responsiveness */
+.post-content {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: transparent;
+    box-sizing: border-box;
+    color: black; /* Assuming you want text color to be black */
+    overflow: auto; /* Allows scrolling if content overflows */
+}
+/* Input and textarea styles */
+input, textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Action button positioning */
+.action {
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+}
+
+/* Text alignment */
+.post-text {
+    text-align: center;
+    color: white;
+}
+
+.post-title{
+    color: white;
+}

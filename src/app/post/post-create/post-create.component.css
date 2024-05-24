@@ -1,0 +1,70 @@
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+
+button {
+    margin: auto;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    background-color: #4CAF50; 
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+button:hover {
+    background-color: #43A047; 
+    transform: translateY(-2px); 
+}
+
+
+mat-form-field, textarea {
+    width: 100%;
+    margin: auto;
+    padding: 0.75rem; 
+    border: 1px solid #ced4da; 
+    border-radius: 0.5rem; 
+    font-size: 1rem; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+
+input[type="file"] {
+    margin-top: 1rem; 
+    padding: 0.75rem; 
+    border: 1px solid #ced4da; 
+    border-radius: 0.5rem; 
+    cursor: pointer; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+
+.or-text {
+    display: block;
+    text-align: center;
+    margin: 1rem 0; 
+    font-size: 1rem; 
+    color: #6c757d; 
+}
+
+mat-card {
+
+    justify-content: center;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+.uploaded-image {
+    width: auto;
+    height: 100px;
+    object-fit: cover; 
+    border-radius: 0.5rem; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    margin-top: 1rem; 
+}

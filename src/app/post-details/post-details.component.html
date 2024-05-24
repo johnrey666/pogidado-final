@@ -1,0 +1,52 @@
+<!-- Existing post details container -->
+<div *ngIf="post" class="post-container">
+    <br><br>
+    <h2 class="post-title">{{post.title}}</h2>
+    <div class="media-container">
+      <img *ngIf="post.imageUrl" [src]="post.imageUrl" alt="Enlarged Post Image">
+      <video *ngIf="post.videoUrl" controls>
+        <source [src]="post.videoUrl" type="video/mp4">
+      </video>
+    </div>
+    <div class="content-wrapper">
+      <p class="post-content">{{post.content}}</p>
+    </div>
+  </div>
+
+
+  
+<!-- New section for Related Posts -->
+<div class="content-container" *ngIf="relatedPosts.length > 0">
+    <div *ngFor="let post of relatedPosts; let i = index"
+      [class.panel-even]="i % 2 === 0"
+      [class.panel-odd]="i % 2!== 0">
+      <div class="post-content">
+        <!-- Display the image if it exists -->
+        <div *ngIf="post.imageUrl" class="post-image-box">
+          <a href="/post/{{post._id}}" class="post-image-link">
+            <img [src]="post.imageUrl" alt="Post Image" class="post-image">
+          </a>
+        </div>
+        <!-- Display video if videoUrl exists -->
+        <video *ngIf="post.videoUrl" muted loop class="post-image" (mouseenter)="playVideo($event)" (mouseleave)="pauseVideo($event)">
+          <source [src]="post.videoUrl" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <h2 style="color: wheat;">{{post.title}}</h2>
+      </div>
+    </div>
+  </div>
+
+    <!-- Comment Section -->
+<div class="comment-section">
+    <h3>Add a Comment</h3>
+    <form [formGroup]="commentForm" (ngSubmit)="onSubmitComment()">
+        <textarea formControlName="comment"></textarea>
+        <button type="submit">Submit Comment</button>
+      </form>
+    <hr>
+    <!-- Display Comments -->
+    <div *ngFor="let comment of comments">
+      <p><strong>{{comment.name}}:</strong> {{comment.comment}}</p>
+    </div>
+  </div>

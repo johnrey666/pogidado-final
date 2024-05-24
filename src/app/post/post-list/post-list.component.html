@@ -1,0 +1,69 @@
+<div class="content-container" *ngIf="posts.length > 0">
+  <div *ngFor="let post of posts; let i = index"
+    [class.panel-even]="i % 2 === 0"
+    [class.panel-odd]="i % 2 !== 0">
+    <div class="post-content">
+      <!-- Display the image if it exists -->
+      <div *ngIf="post.imageUrl" class="post-image-box">
+        <a [routerLink]="['/post', post._id]" class="post-image-link">
+          <img [src]="post.imageUrl" alt="Post Image" class="post-image">
+        </a>
+      </div>
+      <!-- Display video if videoUrl exists -->
+      <div *ngIf="post.videoUrl" class="post-image-box">
+        <a [routerLink]="['/post', post._id]" class="post-video-link">
+          <video muted loop class="post-image" (mouseenter)="playVideo($event)" (mouseleave)="pauseVideo($event)">
+            <source [src]="post.videoUrl" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </a>
+      </div>
+
+      <router-link [routerLink]="['/post', post._id]" class="view-detail-link">
+      </router-link>
+    
+      <!-- Conditional rendering for editing or displaying post content -->
+      <div *ngIf="editingPostId !== post._id">
+        <h3>{{post.title}}</h3>
+        <p>{{post.content}}</p>
+        <div class="action">
+          <button style="color:white;" mat-button [matMenuTriggerFor]="postActions">...</button>
+          <mat-menu #postActions="matMenu">
+            <button mat-menu-item (click)="onEditPost(post._id)">Edit</button>
+            <button mat-menu-item (click)="onDeletePost(post._id)">Delete</button>
+          </mat-menu>
+        </div>
+      </div>
+      <form *ngIf="editingPostId === post._id">
+        <mat-form-field>
+          <mat-label>Title</mat-label>
+          <input matInput [(ngModel)]="post.title" name="title">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Content</mat-label>
+          <textarea matInput [(ngModel)]="post.content" name="content"></textarea>
+        </mat-form-field>
+        <!-- Removed Image URL input and File upload input -->
+        <mat-action-row>
+          <button mat-button color="warn" (click)="onCancelEdit()">Cancel</button>
+          <button mat-button color="primary" (click)="onSavePost(post._id, post)">Save</button>
+        </mat-action-row>
+      </form>
+    </div>
+  </div>
+  <!-- Pagination Controls -->
+  <div class="pagination" *ngIf="pages.length > 1">
+    <button style="color: #ffa31a; background-color: #474747;" mat-button color="primary" (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">
+      <span style="white-space: nowrap;">&lt; Prev</span>
+    </button>
+    <span *ngFor="let page of pages">
+      <button mat-button color="primary" (click)="onPageChange(page)" [disabled]="currentPage === page" [class.selected-page]="currentPage === page">
+        {{page}}
+      </button>
+    </span>
+    <button style="color: #ffa31a; background-color: #474747;" mat-button color="primary" (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === pages.length">
+      <span style="white-space: nowrap;">Next &gt;</span>
+    </button>
+  </div>
+</div>
+<p class="info-text mat-body-1" *ngIf="posts.length <= 0">No post Added</p>

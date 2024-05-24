@@ -1,0 +1,4 @@
+<app-header (searchQueryChange)="onSearchQueryChange($event)" *ngIf="!isLoginOrAuthPage()"></app-header>
+<main>
+    <router-outlet></router-outlet>
+</main>

@@ -1,0 +1,80 @@
+<mat-card>
+    <form (submit)="onAddPost(postForm)" #postForm="ngForm" class="post-create-form">
+
+        <mat-form-field>
+            <input
+            class="input"
+            matInput
+            type="text"
+            name="title"
+            ngModel
+            required
+            #title="ngModel"
+            placeholder="Title"
+            />
+            <mat-error *ngIf="title.invalid">
+            Please enter a post title.
+            </mat-error>
+        </mat-form-field><br><br>
+        <mat-form-field>
+            <input
+            class="input"
+            matInput
+            name="content"
+            type="text"
+            ngModel
+            required
+            placeholder="Content"
+            #content="ngModel"
+            />
+            <mat-error *ngIf="content.invalid">
+            Please enter a post content.
+            </mat-error>
+        </mat-form-field><br><br>
+
+        <!-- Image URL input -->
+        <mat-form-field>
+            <input
+            class="input"
+            matInput
+            type="text"
+            name="imageUrl"
+            [(ngModel)]="enteredImageUrl" 
+            placeholder="Image URL"
+            #imageUrl="ngModel"
+            />
+            <mat-error *ngIf="imageUrl.invalid">
+            Please enter a valid image URL.
+            </mat-error>
+        </mat-form-field>
+        <!-- Image preview -->
+        <img *ngIf="enteredImageUrl" [src]="enteredImageUrl" alt="Preview Image" class="uploaded-image">
+
+        <!-- Video URL input -->
+        <mat-form-field>
+            <input
+            class="input"
+            matInput
+            type="text"
+            name="videoUrl"
+            [(ngModel)]="enteredVideoUrl" 
+            placeholder="Video URL"
+            #videoUrl="ngModel"
+            />
+            <mat-error *ngIf="videoUrl.invalid">
+            Please enter a valid video URL.
+            </mat-error>
+        </mat-form-field>
+        <!-- Video preview -->
+        <video *ngIf="enteredVideoUrl" width="320" height="240" controls autoplay loop class="uploaded-video">
+            <source [src]="enteredVideoUrl" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- File upload input -->
+        <input type="file" (change)="onFileChange($event)" accept="image/jpeg, image/png, image/gif, video/mp4, video/webm, video/ogg">
+
+        <br><br>
+        <button mat-raised-button color="primary" type="submit">Save</button>
+    </form>
+</mat-card>

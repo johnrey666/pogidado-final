@@ -1,0 +1,50 @@
+<p>
+  <mat-toolbar class="yellow-toolbar">
+       <!-- Hamburger Icon and Buttons Container -->
+       <div class="buttons-container">
+         <!-- Hamburger Icon -->
+         <button mat-icon-button style="color: orange !important;">
+           <mat-icon>menu</mat-icon>
+         </button>
+
+         
+         <button class="white view-posts-btn" mat-button routerLink="/list">Posts</button>     
+         <button class="create-post-btn" mat-button routerLink="/create">create</button>
+       </div>
+   
+
+       <div class="custom-search-bar">
+        <mat-icon matSuffix style="color: white;">search</mat-icon>
+        <input type="text" style="color: gainsboro;" placeholder="&nbsp;&nbsp;Search..." class="search-input" #searchInput>
+        <button mat-icon-button (click)="onSearch(searchInput.value)">
+          <mat-icon>search</mat-icon>
+        </button>
+      </div>
+      
+    
+ 
+       <!-- User Icon at the very right corner -->
+       <h2 class="uname">{{ currentUser?.username }}</h2>
+       <button mat-icon-button style="color: white;" [matMenuTriggerFor]="userMenu">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      
+      <!-- User Menu -->
+      <mat-menu #userMenu="matMenu" class="custom-menu">
+        <button mat-menu-item (click)="logout()"><b style="color: black;">Logout</b></button>
+        <button mat-menu-item routerLink="/profile"><b style="color: black;">Profile</b></button>
+      </mat-menu>
+    </mat-toolbar>
+  
+    </p>
+  
+  <!-- Additional Buttons -->
+  <div class="additional-buttons-container">
+      <button mat-button routerLink="/home" class="home-button" style="border-bottom: 3px solid orange;">Home</button>
+      <button mat-button routerLink="/videos">Videos<mat-icon>video_library</mat-icon></button>
+      <button mat-button routerLink="/categories">Categories<mat-icon>keyboard_arrow_down</mat-icon></button>
+      <button mat-button routerLink="/cams">Cams<mat-icon>keyboard_arrow_down</mat-icon></button>
+      <button mat-button routerLink="/stars">Stars<mat-icon>keyboard_arrow_down</mat-icon></button>
+      <button mat-button routerLink="/community">Community<mat-icon>keyboard_arrow_down</mat-icon></button>
+      <button mat-button routerLink="/photos-gifs">Photos & GIFs<mat-icon>photo_library</mat-icon></button>
+  </div>

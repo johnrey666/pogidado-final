@@ -1,0 +1,98 @@
+.yellow-toolbar {
+  background-color: #292929;
+  display: flex;
+  justify-content: space-between; /* This will push the user icon to the right */
+  align-items: center;
+  padding: 0 10px;
+  position: relative; /* Needed for absolute positioning of pseudo-elements */
+  max-width: 100%;
+ }
+
+ :host ::ng-deep.mat-menu-item {
+  color: black!important;
+}
+
+.mat-menu-item {
+  color: black!important;
+}
+ 
+ .custom-menu {
+  background-color: black !important;
+}
+
+.uname {
+  display: flex;
+  justify-content: space-between; /* Aligns items with space between */
+  color: white;
+  right: 0%;
+}
+ .buttons-container {
+  display: flex;
+  gap: 10px; /* Adjust the gap between buttons as needed */
+ }
+ 
+ .custom-search-bar {
+  display: flex;
+  align-items: center;
+  background-color: rgb(62, 62, 62);
+  border-radius: 20px;
+  padding: 5px 10px;
+  /* Remove width: 60%; to allow the search bar to be centered */
+  height: 30px;
+  margin-left: -150px; /* Push this container to the center */
+
+  width: 50%
+ }
+ 
+ /* Adjust the positioning of the user icon button */
+ .user-icon-button {
+  margin-left: auto; /* Push this button to the right */
+ }
+ 
+ .search-input {
+  flex-grow: 1;
+  border: none;
+  background-color: transparent;
+  color: white;
+ }
+ 
+ ::ng-deep .white {
+  color: white !important;
+  font-size: larger;
+  font-weight: 500;
+  top: 3px;
+ }
+ 
+ .create-post-btn {
+  color: black;
+  background-color: orange;
+  border: 1px solid #808080;
+  box-sizing: border-box;
+  font-weight: 500;
+  font-size: larger;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  top: 3px;
+ }
+
+ .additional-buttons-container {
+  display: flex;
+  justify-content: space-between; /* Distribute the buttons evenly across the width */
+  padding: 0 16px; /* Add some padding to the left and right */
+  width: 100%; /* Ensure the container takes up the full width of the toolbar */
+ }
+ 
+ .additional-buttons-container button {
+  flex-grow: 1; /* Make each button grow to take up equal space */
+  margin: 0 4px; 
+ }
+ 
+ button {
+  color: white !important; /* Make the button text white */
+  font-weight: 500; /* Make the text thicker */
+ }
+
+ button mat-icon {
+  vertical-align: middle; /* Align the icon with the middle of the button text */
+  margin-left: 5px; /* Add some space to the left of the icon */
+ }
